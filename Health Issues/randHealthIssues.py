@@ -23,32 +23,29 @@ def randHealthIssue(pk):
     health_issues_sheet = pd.read_excel(sag_file, sheet_name="Health_Issues")
     health_issues = health_issues_sheet.values.tolist()
     
-    for x in range(1):
-        print("Starting process: " + str(x))
-        for i in tqdm(range(500)):
-            #lists used to store random data
-            info = []
-            #random primary key
-            info.append(pk)
-            #add claim status
-            info.append(va_claim[random.randint(0, len(va_claim) - 1)])
-            
-            twoOptions = ["yes", "no"]
-            #va diability y/n
-            info.append(twoOptions[random.randint(0, 1)])
-            #p1.start()
-            #p1.join()
-            pk += 1
-            #opesn health issues sheet
-            health_issues_sheet = pd.read_excel(sag_file, sheet_name="Health_Issues")
-            health_issues = health_issues_sheet.values.tolist()
-            rand_health_issue = random.randint(0, 72)
-            #random health issue
-            info.append(str(health_issues[rand_health_issue][0]))
-            info.append(str(health_issues[rand_health_issue][1]))
-            info.append(str(health_issues[rand_health_issue][2]))
-            export.append(info)
-        #os.system('cls' if os.name == 'nt' else 'clear')
+    for i in tqdm(range(300000)):
+        #lists used to store random data
+        info = []
+        #random primary key
+        info.append(pk)
+        #add claim status
+        info.append(va_claim[random.randint(0, len(va_claim) - 1)])
+        
+        twoOptions = ["yes", "no"]
+        #va diability y/n
+        info.append(twoOptions[random.randint(0, 1)])
+        #p1.start()
+        #p1.join()
+        pk += 1
+        #opesn health issues sheet
+        health_issues_sheet = pd.read_excel(sag_file, sheet_name="Health_Issues")
+        health_issues = health_issues_sheet.values.tolist()
+        rand_health_issue = random.randint(0, 72)
+        #random health issue
+        info.append(str(health_issues[rand_health_issue][0]))
+        info.append(str(health_issues[rand_health_issue][1]))
+        info.append(str(health_issues[rand_health_issue][2]))
+        export.append(info)
 
     print("Exporting to XLSX...")
     print("Takes a bit so be patient")
